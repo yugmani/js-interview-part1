@@ -195,3 +195,55 @@ function removeStoredItem(key) {
 
 // console.log(getStorageItem("name")); //Expected: null;
 
+
+// 9. ⏱️ Timers - setTimeout, setInterval, clearInterval
+
+// setTimeout() method calls a function or evaluates an expression after a specified number of milliseconds.
+
+// setInterval() does the same for specified intervals.
+
+// Finally, clearInterval() is used to stop the timer.
+
+function timers() {
+  console.log("Hello");
+  setTimeout(()=>{
+    console.log("reader");
+  }, 1000)
+  console.log("lovely");
+}
+
+timers();
+// Expected: 
+// Hello
+// lovely
+// reader
+
+// 10. Tickier timeout
+
+// when setTimeout comes again into the picture, the entire loop has run and value of i has become 6
+
+// var is globally scoped but let is locally scoped so for let a new i is created for every iteration.
+
+function tickierTimer() {
+  for(var i=0; i<=5; i++){
+  setTimeout(function(){
+    console.log(i);
+  }, i*1000)
+}
+}
+
+tickierTimer();
+// Expected: 
+// 6
+// 6
+// 6
+// 6
+// 6
+
+// but if you use let instead of var, expected:
+// 0
+// 1
+// 2
+// 3
+// 4
+// 5
