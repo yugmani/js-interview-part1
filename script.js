@@ -96,3 +96,73 @@ function sameHoistingVar() {
 // Expected
 // undefined
 // 9
+
+// 6. == vs ===
+// == converts the operand to the same type and then compares them
+
+// === depicts strict equality check. It checks for same type and same content
+
+function equalityStrict() {
+  let a = null;
+  let b;
+  const c = undefined;
+  var d = NaN;
+  const e = '';
+  console.log(a == b); //true;
+  console.log(a === b); //false;
+  console.log(typeof a); //object
+  console.log(typeof b); //undefined;
+  console.log(c == d); //false;
+  console.log(c === d); //false;
+  console.log(typeof c); //undefined
+  console.log(typeof d); // number;
+  console.log(typeof e); // string;
+  console.log(a == c); // true;
+  console.log(a === c); // false;
+  console.log(a == d); //false;
+  console.log(a === d); //false;
+}
+
+equalityStrict();
+// Expectedconsole.log(a == b);
+// true;
+// false;
+// object
+// undefined;
+// false;
+// false;
+// undefined
+// number;
+// string;
+// true;
+// false;
+// false;
+// false;
+
+// 7. ✔️ this
+// this refers to the object that the function belongs to, in simpler terms, points to the owner of the function call (left of the dot)
+
+// Its value depends on how it is invoked.
+
+// ❓ Implicit vs Explicit Binding
+// Implicit binding is when you invoke a function in an object using dot notation.
+
+const myObj = {
+  name: 'Evan',
+  course: 'JavaScript',
+  displayStatus: function() {
+    console.log(`${this.name} is learning ${this.course}.`);
+  }
+};
+
+const yourObj = {
+  name: "Benzima",
+  course: "Python"
+}
+
+myObj.displayStatus(); 
+// Expected: Evan is learning JavaScript.
+
+myObj.displayStatus.call(yourObj); 
+// Expected: Benzima is learning Python.
+// Consider displayStatus() and displayStatus
