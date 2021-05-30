@@ -41,7 +41,7 @@ function consoleEven(arr) {
 
 // console.log(consoleEven(array1)); // undefined;
 
-// // we are converting the new array back to original
+// 3. we are converting the new array back to original
 function returnOriginal(arr) {
   let data = arr
     .map(num => (num % 2 === 0 ? num * 2 : num * 1))
@@ -49,4 +49,50 @@ function returnOriginal(arr) {
   return data;
 }
 
-console.log(returnOriginal(array1)); // Expected [1, 2, 3, 4, 5, 6, 7];
+// console.log(returnOriginal(array1)); // Expected [1, 2, 3, 4, 5, 6, 7];
+
+// 4. ✔️ var, let and const: ❓ Difference between, scope
+
+function varLetConst() {
+  var a = 3;
+  var a = 4;
+  let b = 3;
+  // let b = 4;
+  const c = 5;
+  // const c = 6;
+  // console.log(a); // 4
+  // console.log(b); // TypeError: Cannot read property
+  // console.log(c); // TypeError: Cannot read property
+}
+
+// varLetConst();
+// Expected
+// 4
+// Syntax TypeError
+// Syntax TypeError
+
+// 5. Hoisting
+// JavaScript's default behavior of moving declarations to the top.
+
+// function and var declarations are hoisted
+
+// Note: var declaration is hoisted - not the value
+function hoistingVar() {
+  console.log(pen); //Expected undefined;
+  var pen = 10;
+}
+
+// hoistingVar(); //Expected undefined;
+
+// here is how runtime sees this:
+function sameHoistingVar() {
+  var hen;
+  console.log(hen); //Expected undefined;
+  hen = 9;
+  console.log(hen); //Expected 9;
+}
+
+// sameHoistingVar();
+// Expected
+// undefined
+// 9
