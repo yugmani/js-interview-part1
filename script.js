@@ -123,7 +123,7 @@ function equalityStrict() {
   console.log(a === d); //false;
 }
 
-equalityStrict();
+// equalityStrict();
 // Expectedconsole.log(a == b);
 // true;
 // false;
@@ -156,13 +156,42 @@ const myObj = {
 };
 
 const yourObj = {
-  name: "Benzima",
-  course: "Python"
-}
+  name: 'Benzima',
+  course: 'Python'
+};
 
-myObj.displayStatus(); 
+// myObj.displayStatus();
 // Expected: Evan is learning JavaScript.
 
-myObj.displayStatus.call(yourObj); 
+// myObj.displayStatus.call(yourObj);
 // Expected: Benzima is learning Python.
 // Consider displayStatus() and displayStatus
+
+// 8. Local and session storage
+// localStorage: Data persists even after closing your session
+
+// sessionStorage: Data is lost when your session is over, ie, on closing the browser on the tab
+
+//To save data in local storage;
+function saveLocally(key, value) {
+  localStorage.setItem(key, value);
+}
+
+//to retrieve saved data;
+function getStorageItem(key) {
+  let item = localStorage.getItem(key);
+  return item;
+}
+
+//to remove data from storage;
+function removeStoredItem(key) {
+  localStorage.removeItem(key);
+}
+
+// saveLocally("name", "Jonathan"); // Expected to be saved on local storage : key: "name", value = "Jonathan";
+// console.log(getStorageItem("name")); //Expected: Jonathan;
+
+// removeStoredItem("name"); // Expected to be removed on local storage : key: "name", value = "Jonathan";
+
+// console.log(getStorageItem("name")); //Expected: null;
+
